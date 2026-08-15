@@ -1,0 +1,50 @@
+schema_version = 1
+
+# UNCALIBRATED CAMPAIGN TEMPLATE — do not use for a formal convergence claim.
+# Measured EBSD `ban` ROI, mesh sized for ell/h_K ~ 2.  The current terminal
+# displacement reaches 3.73% nominal strain and b=1.5 um saturates most of the
+# ROI; retain this file only for a future, calibrated campaign redesign.
+
+[geometry]
+length = 0.09639
+height = 0.048195
+nx = 184
+ny = 92
+precrack_length = 0.0240975
+
+[material]
+young_modulus = 210000.0
+poisson_ratio = 0.30
+fracture_toughness = 2.7
+length_scale = 0.0015
+residual_stiffness = 1.0e-8
+
+[loading]
+maximum_displacement = 0.0018
+steps = 18
+stagger_max_iterations = 120
+stagger_tolerance = 1.0e-5
+damage_kkt_tolerance = 1.0e-6
+adaptive = true
+maximum_subdivisions = 6
+minimum_increment = 1.0e-8
+
+[hydrogen]
+enabled = false
+
+[graph]
+enabled = true
+influence_radius = 0.0015
+crack_threshold = 0.70
+chain_artifact = "../data/ebsd_gb_chains/ban_roi.npz"
+confidence_floor = 0.0
+
+[solver]
+linear_ksp_type = "preonly"
+linear_pc_type = "lu"
+factor_solver = "mumps"
+damage_snes_type = "vinewtonrsls"
+
+[output]
+directory = "../results/ebsd_ban_h2"
+write_every = 2

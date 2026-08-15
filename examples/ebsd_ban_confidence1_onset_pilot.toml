@@ -1,0 +1,58 @@
+schema_version = 1
+
+# UNCALIBRATED SMALL-STRAIN ONSET-WINDOW PILOT.
+#
+# This case asks whether a mechanically relevant response can be bracketed
+# without exceeding the infinitesimal-strain screen after excluding every
+# chain whose EBSD geometry confidence is below 1.  The bulk-Gc finite-width
+# edge-crack LEFM screen estimates u_c ~= 0.000399 mm; the endpoint below is
+# 0.934% nominal strain and about 1.13*u_c.  LEFM is only a load-window screen.
+#
+# For the isolated 1-D Gaussian interface, r=0.45 and b/ell=1 correspond to an
+# effective AT2 toughness ratio of about 0.564.  The measured 2-D network has
+# overlap and uncalibrated attributes, so this remains a numerical pilot, not a
+# material, onset-load, crack-path or confidence-policy validation.
+
+[geometry]
+length = 0.09639
+height = 0.048195
+nx = 184
+ny = 92
+precrack_length = 0.0240975
+
+[material]
+young_modulus = 210000.0
+poisson_ratio = 0.30
+fracture_toughness = 2.7
+length_scale = 0.0015
+residual_stiffness = 1.0e-8
+
+[loading]
+maximum_displacement = 0.00045
+steps = 15
+stagger_max_iterations = 160
+stagger_tolerance = 1.0e-5
+damage_kkt_tolerance = 1.0e-6
+adaptive = true
+maximum_subdivisions = 6
+minimum_increment = 1.0e-9
+
+[hydrogen]
+enabled = false
+
+[graph]
+enabled = true
+influence_radius = 0.0015
+crack_threshold = 0.70
+chain_artifact = "../data/ebsd_gb_chains/ban_roi.npz"
+confidence_floor = 1.0
+
+[solver]
+linear_ksp_type = "preonly"
+linear_pc_type = "lu"
+factor_solver = "mumps"
+damage_snes_type = "vinewtonrsls"
+
+[output]
+directory = "../results/ebsd_ban_confidence1_onset_pilot"
+write_every = 3

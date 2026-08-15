@@ -1,0 +1,57 @@
+# IJSS evidence campaign: B_increment, P0
+# Purpose: coarse load increment
+# Computed ell/h_K = 2.024707 using the triangular-cell diagonal.
+
+[geometry]
+length = 0.09639
+height = 0.048195
+nx = 184
+ny = 92
+precrack_length = 0.0240975
+
+[material]
+young_modulus = 210000.0
+poisson_ratio = 0.3
+fracture_toughness = 2.7
+length_scale = 0.0015
+residual_stiffness = 1e-8
+
+[loading]
+maximum_displacement = 0.00045
+steps = 15
+stagger_max_iterations = 240
+stagger_tolerance = 1e-5
+damage_kkt_tolerance = 1e-6
+adaptive = true
+maximum_subdivisions = 8
+minimum_increment = 1e-10
+
+[graph]
+enabled = true
+influence_radius = 0.0015
+crack_threshold = 0.7
+chain_artifact = "../data/ebsd_gb_chains/ban_roi.npz"
+confidence_floor = 1.0
+attribute_permutation_seed = -1
+
+[output]
+directory = "../results/ijss_ban_dt_steps15"
+write_every = 1
+
+[solver]
+linear_ksp_type = "preonly"
+linear_pc_type = "lu"
+factor_solver = "mumps"
+damage_snes_type = "vinewtonrsls"
+
+[hydrogen]
+enabled = false
+diffusivity = 0.0001
+charging_concentration = 0.05
+charging_time = 500.0
+steps = 20
+trap_binding_constant = 20.0
+background_trap_density = 0.0
+toughness_degradation = 0.8
+minimum_toughness_ratio = 0.2
+charging_boundary = "bottom"

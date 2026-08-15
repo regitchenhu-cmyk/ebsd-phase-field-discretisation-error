@@ -1,0 +1,72 @@
+# IJSS evidence campaign: D_measured_domain_factorial, P2
+# Purpose: measured graph with lattice hydrogen; audited chain Nt remains zero
+# Computed ell/h_K = 2.024707 using the triangular-cell diagonal.
+
+[geometry]
+length = 0.09639
+height = 0.048195
+nx = 184
+ny = 92
+precrack_length = 0.0240975
+
+[material]
+young_modulus = 210000.0
+poisson_ratio = 0.3
+fracture_toughness = 2.7
+length_scale = 0.0015
+residual_stiffness = 1e-8
+
+[loading]
+maximum_displacement = 0.0009
+steps = 60
+stagger_max_iterations = 240
+stagger_tolerance = 1e-5
+damage_kkt_tolerance = 1e-6
+adaptive = true
+maximum_subdivisions = 8
+minimum_increment = 1e-10
+
+[graph]
+enabled = true
+influence_radius = 0.0015
+crack_threshold = 0.7
+chain_artifact = "../data/ebsd_gb_chains/ban_roi.npz"
+confidence_floor = 1.0
+attribute_permutation_seed = -1
+
+[path_control]
+enabled = true
+functional = "fracture_energy"
+switch_displacement = 0.00072
+target_increment = 0.00025
+steps = 8
+adaptive = true
+use_energy_predictor = true
+maximum_subdivisions = 8
+minimum_increment = 9.765625e-7
+load_lower_bound = 0.0002
+load_upper_bound = 0.0009
+snes_max_iterations = 100
+residual_tolerance = 1e-8
+control_tolerance = 1e-6
+[output]
+directory = "../results/ijss_ban_factorial_graph_H_pathpilot_dE2p5e4_steps8"
+write_every = 6
+
+[solver]
+linear_ksp_type = "preonly"
+linear_pc_type = "lu"
+factor_solver = "mumps"
+damage_snes_type = "vinewtonrsls"
+
+[hydrogen]
+enabled = true
+diffusivity = 0.0001
+charging_concentration = 0.05
+charging_time = 500.0
+steps = 20
+trap_binding_constant = 20.0
+background_trap_density = 0.0
+toughness_degradation = 0.8
+minimum_toughness_ratio = 0.2
+charging_boundary = "bottom"

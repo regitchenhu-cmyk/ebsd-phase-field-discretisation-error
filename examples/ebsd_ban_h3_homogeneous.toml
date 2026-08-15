@@ -1,0 +1,47 @@
+schema_version = 1
+
+# UNCALIBRATED CAMPAIGN TEMPLATE.  Homogeneous control at ell/h_K~3; the present
+# load reaches 3.73% nominal strain.  It may only enter a future comparison after
+# specimen, constitutive parameters and loading have been calibrated.
+
+[geometry]
+length = 0.09639
+height = 0.048195
+nx = 272
+ny = 136
+precrack_length = 0.0240975
+
+[material]
+young_modulus = 210000.0
+poisson_ratio = 0.30
+fracture_toughness = 2.7
+length_scale = 0.0015
+residual_stiffness = 1.0e-8
+
+[loading]
+maximum_displacement = 0.0018
+steps = 18
+stagger_max_iterations = 120
+stagger_tolerance = 1.0e-5
+damage_kkt_tolerance = 1.0e-6
+adaptive = true
+maximum_subdivisions = 6
+minimum_increment = 1.0e-8
+
+[hydrogen]
+enabled = false
+
+[graph]
+enabled = false
+influence_radius = 0.0015
+crack_threshold = 0.70
+
+[solver]
+linear_ksp_type = "preonly"
+linear_pc_type = "lu"
+factor_solver = "mumps"
+damage_snes_type = "vinewtonrsls"
+
+[output]
+directory = "../results/ebsd_ban_h3_homogeneous"
+write_every = 2

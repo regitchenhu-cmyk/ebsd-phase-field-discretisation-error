@@ -1,0 +1,54 @@
+schema_version = 1
+
+# Native-scale EBSD mapping/code-verification case only.
+#
+# This run verifies the hash-bound ban ROI polyline loader, DG0 material-field
+# interpolation, pre-crack equilibration, linear reaction and MPI output.  It is
+# deliberately capped at 0.1% nominal strain and is NOT a calibrated fracture,
+# topology, peak-load or crack-path prediction.  The 1.5 um band is a resolvable
+# numerical regularisation width, not a physical grain-boundary thickness.
+
+[geometry]
+length = 0.09639
+height = 0.048195
+nx = 184
+ny = 92
+precrack_length = 0.0240975
+
+[material]
+# Consistent mm-MPa-N units, but these values are not calibrated to this ROI.
+young_modulus = 210000.0
+poisson_ratio = 0.30
+fracture_toughness = 2.7
+length_scale = 0.0015
+residual_stiffness = 1.0e-8
+
+[loading]
+maximum_displacement = 0.000048195
+steps = 3
+stagger_max_iterations = 120
+stagger_tolerance = 1.0e-5
+damage_kkt_tolerance = 1.0e-6
+adaptive = true
+maximum_subdivisions = 4
+minimum_increment = 1.0e-9
+
+[hydrogen]
+enabled = false
+
+[graph]
+enabled = true
+influence_radius = 0.0015
+crack_threshold = 0.70
+chain_artifact = "../data/ebsd_gb_chains/ban_roi.npz"
+confidence_floor = 0.0
+
+[solver]
+linear_ksp_type = "preonly"
+linear_pc_type = "lu"
+factor_solver = "mumps"
+damage_snes_type = "vinewtonrsls"
+
+[output]
+directory = "../results/ebsd_ban_mapping_smoke"
+write_every = 1
