@@ -1,0 +1,26 @@
+{
+  "frozen_edge_crack": {
+    "reference_mesh": "736x368",
+    "reference_reaction_N_per_mm": 15.452266560481752,
+    "finest_pair_change_pct": 1.3660751247293583,
+    "formal_joint_order": 0.203,
+    "formal_limit": 12.113711518517258,
+    "coefficient": 19.142045275009114,
+    "residual_sum_squares": 0.00033168051089207923,
+    "status": "diagnostic only; asymptotic behavior not assumed"
+  },
+  "coupled_at2": {
+    "reference_mesh": "736x368",
+    "reference_reaction_N_per_mm": 15.191816781911989,
+    "finest_pair_change_pct": 1.4406333539491518,
+    "formal_joint_order": 0.23500000000000001,
+    "formal_limit": 12.165913040834957,
+    "coefficient": 22.835093134323042,
+    "residual_sum_squares": 0.00024713131928796357,
+    "status": "diagnostic only; asymptotic behavior not assumed"
+  },
+  "maximum_reaction_extraction_mismatch_pct": 0.19500988826342633,
+  "maximum_coupled_reaction_reduction_from_frozen_pct": 1.6855118150488568,
+  "finest_coupled_damage_increment_pct": 0.1718961759289872,
+  "interpretation": "The frozen and evolving sequences are compared against the same 736x368 same-model reference. Their formal power fits are diagnostics only."
+}
