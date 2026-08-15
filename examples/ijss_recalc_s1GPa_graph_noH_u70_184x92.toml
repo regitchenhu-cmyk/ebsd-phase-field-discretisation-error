@@ -1,0 +1,58 @@
+# IJSS scientific recalculation: B_contrast_convergence, P1
+# Purpose: stable-window same-load-node contrast convergence at u=4e-5 mm; 5 s hydrogen cases are transient lattice-only precharge
+# Strength calibration: plane-strain homogeneous AT2 first peak = 1000.0 MPa.
+# Resolution: ell/h_K=2.024707, b/h_K=2.024707, ell/b=1.000000.
+
+[geometry]
+length = 0.09639
+height = 0.048195
+nx = 184
+ny = 92
+precrack_length = 0.0240975
+
+[material]
+young_modulus = 210000.0
+poisson_ratio = 0.3
+fracture_toughness = 0.0616296296296
+length_scale = 0.0015
+residual_stiffness = 1e-8
+
+[loading]
+maximum_displacement = 7e-05
+steps = 35
+stagger_max_iterations = 320
+stagger_tolerance = 1e-5
+damage_kkt_tolerance = 1e-6
+adaptive = true
+maximum_subdivisions = 10
+minimum_increment = 1e-11
+
+[graph]
+enabled = true
+influence_radius = 0.0015
+crack_threshold = 0.7
+chain_artifact = "../data/ebsd_gb_chains/ban_roi.npz"
+confidence_floor = 1.0
+attribute_permutation_seed = -1
+
+[output]
+directory = "../results/ijss_recalc_s1GPa_graph_noH_u70_184x92"
+write_every = 2
+
+[solver]
+linear_ksp_type = "preonly"
+linear_pc_type = "lu"
+factor_solver = "mumps"
+damage_snes_type = "vinewtonrsls"
+
+[hydrogen]
+enabled = false
+diffusivity = 0.0001
+charging_concentration = 0.05
+charging_time = 10.0
+steps = 20
+trap_binding_constant = 20.0
+background_trap_density = 0.0
+toughness_degradation = 0.8
+minimum_toughness_ratio = 0.2
+charging_boundary = "bottom"
