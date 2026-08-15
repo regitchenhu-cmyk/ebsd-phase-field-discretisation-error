@@ -1,0 +1,18 @@
+{
+  "matched_endpoint_mm": 3e-05,
+  "completed_meshes": [
+    "184x92",
+    "276x138",
+    "368x184"
+  ],
+  "synthetic_control": "r_G=0.2, b=3 micrometres, ell/b=0.5",
+  "finest_DG0_graph_effect_pct": 2.5757259517029008,
+  "finest_CG1_graph_effect_pct": 2.542594080170235,
+  "finest_DG0_vs_CG1_difference_pct": 0.03229991425871548,
+  "homogeneous_368_vs_736_difference_pct": 3.4068657191915284,
+  "positive_control_gate_threshold_pct": 3.4068657191915284,
+  "positive_control_gate_pass": false,
+  "right_censored_552_common_state_mm": 2e-05,
+  "right_censored_552_CG1_vs_DG0_difference_pct": -0.014429956919814746,
+  "claim_limit": "The gate accepts a deliberately strong synthetic effect, not a calibrated measured-graph mechanism. The 552x276 branches remain right-censored."
+}
