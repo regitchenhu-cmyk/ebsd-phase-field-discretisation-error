@@ -1,0 +1,149 @@
+{
+  "ambiguous_checkerboards": 0,
+  "arrays": {
+    "chain_offsets": {
+      "dtype": "<i8",
+      "shape": [
+        3772
+      ]
+    },
+    "chain_point_ids": {
+      "dtype": "<i8",
+      "shape": [
+        18788
+      ]
+    },
+    "confidence_fraction": {
+      "dtype": "<f8",
+      "shape": [
+        3771
+      ]
+    },
+    "diffusivity_ratio": {
+      "dtype": "<f8",
+      "shape": [
+        3771
+      ]
+    },
+    "grain_pairs": {
+      "dtype": "<i8",
+      "shape": [
+        3771,
+        2
+      ]
+    },
+    "phase_pairs": {
+      "dtype": "<i8",
+      "shape": [
+        3771,
+        2
+      ]
+    },
+    "points": {
+      "dtype": "<f8",
+      "shape": [
+        13855,
+        2
+      ]
+    },
+    "toughness_ratio": {
+      "dtype": "<f8",
+      "shape": [
+        3771
+      ]
+    }
+  },
+  "artifact_sha256": "66afb99dfe489314942677855a055db2ffc3d204dd763b49017742ee239ff97e",
+  "format": "inverse_pfm.gb_chains",
+  "format_version": 1,
+  "metadata": {
+    "attribute_parameters": {
+      "beta_DH": 12.0,
+      "beta_trap": 8.0,
+      "kam_trap_gain": 6.0,
+      "kgb_Gc": 0.55,
+      "sigma3_Gc_bonus": 0.25,
+      "sigma3_angle": 60.0,
+      "sigma3_energy_factor": 0.3,
+      "sigma3_tol": 8.66,
+      "theta_hagb": 15.0,
+      "theta_rs": 15.0
+    },
+    "chain_attribute_mapping": {
+      "diffusivity_source": "legacy GrainGraph.edge_DH dimensionless ratio",
+      "heterophase_policy": "neutral",
+      "matrix_phase_id": 2,
+      "non_matrix_chain_count": 146,
+      "non_matrix_chain_length_mm": 0.13446,
+      "toughness_source": "legacy GrainGraph.edge_Gc dimensionless ratio",
+      "trap_density": {
+        "reason": "legacy GrainGraph.edge_trap is a dimensionless ratio and is not silently reinterpreted as an absolute additive trap density",
+        "status": "omitted"
+      }
+    },
+    "chain_rule": "same grain pair through global degree-two vertices",
+    "confidence_rule": "length fraction with both adjacent pixels indexed",
+    "coordinate_convention": "pixel-dual vertices",
+    "coordinate_units": "mm",
+    "ctf_path": "D:\\models\\PFM计算模型\\EBSD data\\EBSD data\\ban\\ban.ctf",
+    "ctf_sha256": "5f1edca4dbc5ab40fea99789ecf0b7de5514efc60dd5977664f3cc65340f77f9",
+    "flip_y": true,
+    "full_graph_counts": {
+      "adjacency_edges": 7030,
+      "grains": 2536
+    },
+    "grid_shape": [
+      119,
+      238
+    ],
+    "matrix_phase": {
+      "id": 2,
+      "name": "Iron bcc (old)"
+    },
+    "pixel_size_source_units": [
+      0.405,
+      0.405
+    ],
+    "reconstruction_parameters": {
+      "kam_cap": 5.0,
+      "min_grain_px": 3,
+      "theta_seg": 10.0
+    },
+    "reconstruction_scope": "full EBSD map before ROI crop",
+    "roi_origin_source_units": [
+      0.0,
+      0.0
+    ],
+    "roi_pixel_bounds": [
+      0,
+      238,
+      54,
+      173
+    ],
+    "roi_shape": [
+      119,
+      238
+    ],
+    "section": "ban",
+    "section_axes": [
+      "RD",
+      "TD"
+    ],
+    "source_grid_shape": [
+      227,
+      239
+    ],
+    "source_length_units": "um",
+    "source_step_um": [
+      0.405,
+      0.405
+    ],
+    "unindexed_policy": {
+      "geometry_confidence": "chain length fraction whose two adjacent source pixels were indexed",
+      "label_fill": "legacy reconstruction: indexed components followed by iterative four-neighbour fill",
+      "original_roi_index_rate": 0.8022738507167573
+    },
+    "unit_scale": 0.001
+  },
+  "semantic_sha256": "f996c661abdde3a3672f439f6409f56901a82a9a27472415739e8eebeb611094"
+}
