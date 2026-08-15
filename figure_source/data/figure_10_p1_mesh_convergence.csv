@@ -1,0 +1,5 @@
+mesh,ell_over_hK,"reaction_Homogeneous, no H","reaction_Homogeneous, 5 s H","reaction_EBSD graph, no H","reaction_EBSD graph, 5 s H","crack_change_pct_Homogeneous, no H","crack_change_pct_Homogeneous, 5 s H","crack_change_pct_EBSD graph, no H","crack_change_pct_EBSD graph, 5 s H","contrast_pct_H effect, graph off","contrast_pct_H effect, graph on","contrast_pct_Graph effect, H off","contrast_pct_Graph effect, H on"
+184×92,2.0247066,16.366286,16.298818,16.29916,16.132085,0.120983,0.227901,0.2526,0.681935,-0.412238,-1.025054,-0.410148,-1.022977
+276×138,3.0370599,15.976432,15.897874,15.894989,15.672571,0.138053,0.260138,0.300814,0.901781,-0.491709,-1.399298,-0.509772,-1.417195
+368×184,4.0494133,15.755944,15.670141,15.660028,15.34499,0.152657,0.287471,0.349121,1.26558,-0.54458,-2.01173,-0.608764,-2.074967
+460×230,5.0617666,15.535596,15.444393,15.424492,15.064457,0.161269,0.30306,0.391295,1.405509,-0.58706,-2.33418,-0.715153,-2.460023
