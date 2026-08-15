@@ -1,0 +1,5 @@
+# Data availability
+
+This GitHub release contains the raw EBSD CTF file used in the study, the processed boundary-polyline data, compact material-field arrays, source code, manuscript configurations, resolved run configurations, accepted/rejected continuation histories, benchmark summaries, figure-source data, and a file-level SHA-256 manifest.
+
+Large time-dependent XDMF/HDF5 field histories are not included because they are unsuitable for an ordinary Git repository. They should be deposited in a DOI-bearing archive if direct access to every volumetric field state is required. The files in this package are sufficient to identify the raw observation, reconstruct the prescribed material fields, inspect the exact run configurations, and reproduce the reported calculations in a compatible DOLFINx/PETSc environment.
