@@ -1,0 +1,297 @@
+\documentclass[review,12pt]{elsarticle}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs,tabularx,array}
+\usepackage{amsmath}
+\usepackage[margin=25mm]{geometry}
+\journal{Theoretical and Applied Fracture Mechanics}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{5pt}
+\setlength{\belowcaptionskip}{2pt}
+\flushbottom
+\begin{document}
+\begin{frontmatter}
+\title{Supplementary material for: Distinguishing grain-boundary effects from discretisation error in EBSD-based phase-field fracture simulations}
+\author{Hu Chen et al.}
+\end{frontmatter}
+
+\section{Supplementary calculation sets}
+\label{sec:supp-campaign}
+The supplementary calculations are organised in four stages. P0 establishes
+strength-calibrated transport and continuation protocols. P1 tests absolute
+and contrast-level mesh convergence. P2 evaluates boundary-field width and
+confidence selection. P3 tests a full-domain mesh that resolves both the crack
+and boundary-field regularisation lengths.
+
+\subsection{Transport and continuation calculation (archive ID P0)}
+For the 5 s precharge, the accepted lattice concentration statistics are
+$c_{\min}=0.0408937$, $c_{\mathrm{mean}}=0.0449579$ and
+$c_{\max}=0.05$. The 10 and 20 s fields are near terminal saturation. The
+hydrogen-free boundary-polyline path reference calculation provides 25 accepted fracture-energy states and
+is used only to verify the continuation procedure over its converged range.
+
+\subsection{Mesh and material-contrast study (archive ID P1)}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.90\textwidth]{supp_figure_s1_p1_mesh_convergence.pdf}
+\caption{Strength-calibrated absolute-response and paired-contrast mesh
+sequences at the common displacement $u=4.0\times10^{-5}\ \mathrm{mm}$.}
+\label{fig:S1}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{P1 reactions at the exact common displacement (N).}
+\label{tab:S1}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{rrrrr}
+\toprule
+$n_x$ & Hom/no H & Hom/5 s H & Boundary-property field/no H & Boundary-property field/5 s H\\
+\midrule
+184 & 16.366286 & 16.298818 & 16.299160 & 16.132085\\
+276 & 15.976432 & 15.897874 & 15.894989 & 15.672571\\
+368 & 15.755944 & 15.670141 & 15.660028 & 15.344990\\
+460 & 15.535596 & 15.444393 & 15.424492 & 15.064457\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Grain-boundary field construction (archive ID P2)}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.86\textwidth]{supp_figure_s2_p2_b_confidence_matrix.pdf}
+\caption{Reaction and regularised-crack sensitivity to boundary-field width
+and parent-indexed-segment fraction.}
+\label{fig:S2}
+\end{figure}
+
+\subsection{Scale-resolution continuation study (archive ID P3)}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.82\textwidth]{supp_figure_s3_p3_resolved_feasibility.pdf}
+\caption{Accepted P3 branches, crack-measure evolution and adaptive increments.
+Terminal boundary-property field and homogeneous states are unmatched and are not interpreted as
+a material contrast.}
+\label{fig:S3}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{Last accepted P3 states.}
+\label{tab:S2}
+\small
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrr}
+\toprule
+Case & $u$ (mm) & $R_y$ (N) & Minimum accepted increment\\
+\midrule
+Homogeneous displacement & $2.99375\times10^{-5}$ & 12.590269 & $7.8125\times10^{-9}\ \mathrm{mm}$\\
+Homogeneous energy path & $3.605856\times10^{-5}$ & 14.961744 & $1.953125\times10^{-9}\ \mathrm{N}\!\cdot\!\mathrm{mm}$\\
+EBSD boundary-property field hybrid setup & $1.503125\times10^{-5}$ & 6.395418 & $7.8125\times10^{-9}\ \mathrm{mm}$\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\section{Homogeneous edge-crack verification}
+\label{sec:supp-verification}
+
+The verification suite comprises a plane-strain uniform-tension patch test with
+rigid translation, the homogeneous AT2 first-peak comparison, and the
+one-dimensional AT2 crack-profile and surface-energy comparison. All three
+tests pass in the archived DOLFINx 0.11.0 environment.
+
+\begin{table}[!htbp]
+\centering
+\caption{Verification and error-attribution metrics. Formal orders are
+descriptive because the sequences are non-asymptotic.}
+\label{tab:S3}
+\begin{tabular}{lrr}
+\toprule
+Metric & Frozen crack & Coupled AT2\\
+\midrule
+Finest-pair reaction change (\%) & 1.366 & 1.441\\
+Formal all-level power-fit order & 0.203 & 0.235\\
+Maximum dual-reaction mismatch (\%) & 0.195 & 0.195\\
+Maximum $\kappa$-sweep reaction change (\%) & 0.000519 & --\\
+Finest coupled-frozen reaction change (\%) & -- & 1.686\\
+Finest crack-measure increase (\%) & 0 & 0.172\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The uniform meshes are $184\times92$, $276\times138$, $368\times184$,
+$460\times230$, $552\times276$, and $736\times368$, all evaluated at
+$u=4.0\times10^{-5}\ \mathrm{mm}$. A smooth coordinate grading with tip ratio 0.25 and
+power 2 gives coupled reactions of 15.216, 14.942, and
+$14.791~\mathrm{N\,mm^{-1}}$ on the first three sizes, crossing rather than
+monotonically approaching the uniform $736\times368$ reference of
+$15.192~\mathrm{N\,mm^{-1}}$. The apparently accurate coarse graded value is
+therefore treated as error cancellation.
+
+\section{Field representation and high-contrast verification}
+\label{sec:supp-controls}
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Paired grain-boundary-field contrasts and the auxiliary homogeneous
+mesh comparison at each exact displacement. Effects are reported on the finest
+common completed mesh for each case.}
+\label{tab:S4}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Case & $r_G$ & $b$ ($\mu$m) & $\ell/b$ & DG0 effect (\%) & CG1 effect (\%) & Homogeneous mesh difference (\%)\\
+\midrule
+Moderate-contrast field & 0.20 & 3 & 0.50 & 2.576 & 2.543 & 3.407\\
+High-contrast verification field & 0.05 & 6 & 0.25 & 4.433 & 4.399 & 3.267\\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The moderate-contrast field is evaluated at the exact common displacement
+\(u=3.0\times10^{-5}\ \mathrm{mm}\) on \(184\times92\),
+\(276\times138\), and \(368\times184\) meshes. Its DG0 and CG1 paired
+effects change by \(0.440\) and \(0.415\) percentage points over the final
+refinement and do not approach a plateau. The \(3.407\%\) auxiliary value is the
+homogeneous \(368\times184\)-to-\(736\times368\) reaction difference at that
+displacement.
+
+The high-contrast verification field is evaluated at
+\(u=4.0\times10^{-6}\ \mathrm{mm}\) on the same three common meshes. Its
+paired effects change by \(0.032\) and \(0.011\) percentage points over the
+final refinement, while the DG0--CG1 difference decreases from \(0.098\%\) to
+\(0.032\%\). The \(3.267\%\) auxiliary value compares the same two homogeneous
+meshes at this lower displacement. The two auxiliary values differ because the
+absolute reaction error is load-state dependent; neither is a universal
+threshold. Attempts to continue every high-contrast branch to
+\(3.0\times10^{-5}\ \mathrm{mm}\) did not reach a common target and are not
+used in the comparison.
+
+\section{Tension--compression exposure}
+\label{sec:supp-split}
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Fixed-state tension-compression exposure at
+$u=4.0\times10^{-5}\ \mathrm{mm}$. Split corrections are normalized by the
+full-degradation elastic energy; spectral driving exposure is normalized by
+the complete damage-driving integral.}
+\label{tab:S5}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Mesh & $\ell/h_K$ & $\min(\mathrm{tr}\,\boldsymbol{\varepsilon})$
+& $\min\sigma_3$ (MPa) & Amor (\%) & Spectral (\%) & Spectral driving (\%)\\
+\midrule
+$368\times184$ & 4.049 & $1.356\times10^{-4}$ & -570.3 & 0 & 1.067 & 8.671\\
+$736\times368$ & 8.099 & $4.922\times10^{-5}$ & -1427.3 & 0 & 1.332 & 7.349\\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+The increasingly negative cell-centroid principal stress is a singular,
+mesh-dependent diagnostic and is not interpreted as a converged material
+stress. The zero Amor correction does not imply zero sensitivity to a
+Miehe-type spectral split; no spectral branch is re-solved.
+\section{Data and code}
+\label{sec:supp-data}
+CSV/JSON source tables for main Figures 1--8 and Supplementary Figures S1--S5,
+resolved configurations, converged and failed continuation histories, and Python
+verification and plotting scripts are identified in the repository-deposit
+manifest. Full XDMF/HDF5 fields and restart files are listed in the same manifest;
+repository access is described in the Data availability statement.
+\section{Implementation details and EBSD boundary extraction}
+\label{sec:supp-operators}
+
+\subsection{Exact crack-initialisation operator}
+For each structured mesh, the executable operator is
+\begin{verbatim}
+precrack = (x[0] <= a0) & isclose(x[1], H/2, rtol=0, atol=0.1*hy)
+d.interpolate(precrack.astype(PETSc.ScalarType))
+d_lower[:] = d
+d_upper[:] = 1
+\end{verbatim}
+A zero-load SNESVI relaxation then generates the diffuse AT2 field. The archive
+contains this source, the mesh configuration, relaxed field and hashes; no
+analytical profile is substituted.
+
+\subsection{Fracture-energy control}
+The monolithic unknown is $(\mathbf{z},d,\alpha)$ with
+$\mathbf{u}=\mathbf{z}+\alpha U_{\mathrm{ref}}(0,y/H)$. Its residual contains
+mechanical equilibrium, the damage KKT conditions and
+$E_f(d)-E_{f,\mathrm{target}}=0$. P0 uses SNES relative/absolute/step tolerances
+$10^{-8}$, $10^{-10}$ and $10^{-12}$, respectively, and a relative energy-control
+tolerance of $10^{-6}$. An unsuccessful target restores $(\mathbf{z},d,\alpha)$
+and all history variables before bisecting the energy increment. Tables S3--S5 distinguish requested, converged, failed and incomplete
+continuation states.
+
+\subsection{Grain-boundary extraction and network construction}
+Grains are four-neighbour, same-phase connected components below a cubic
+disorientation threshold of $10^{\circ}$. Components smaller than three pixels
+are absorbed. Unindexed pixels are nearest-label filled only after segmentation;
+the original indexed mask remains part of indexed-segment filtering. The indexed-segment fraction is the
+length-weighted fraction of pixel-edge segments whose two adjacent source pixels were
+indexed. The continuum kernel is $\exp(-d^2/b^2)$ and is truncated at weight
+$10^{-9}$, giving $r_{\mathrm{cut}}=4.55228b$. Non-matrix boundary polylines are retained in the boundary table but assigned neutral constitutive ratios.
+
+\section{Material-contrast implementation and continuation history}
+\label{sec:supp-moved}
+
+This section collects three items referenced from the main text. The two-factor
+calculation verifies that the hydrogen and boundary-property perturbations are
+applied independently; the continuation history documents where the measured
+boundary-property-field calculation with hydrogen stops under displacement
+control; the summary table lists the numerical results reported in the main text
+together with the interpretation each one supports. None of the three is used to
+support a resolved material effect.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figure_5_synthetic_factor.pdf}
+\caption{Two-factor synthetic benchmark at a common endpoint. (a) Reactions for boundary-property field and hydrogen states. (b,c) Paired hydrogen and boundary-property field contrasts. (d) Only the combined boundary-field--hydrogen case reaches the threshold-front indicator. The +4.757 \(\mathrm{N}\!\cdot\!\mathrm{mm}^{-1}\) interaction residual, 0.464\% of the 1024.752 \(\mathrm{N}\!\cdot\!\mathrm{mm}^{-1}\) no-boundary-property field/no-hydrogen baseline, is a diagnostic of the prescribed synthetic construction and not evidence for a calibrated material interaction.}
+\label{fig:S4}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{figure_8_damage_continuation.pdf}
+\caption{Damage fields near the crack tip and convergence history for the grain-boundary-plus-hydrogen calculation. The homogeneous hydrogen-free and hydrogen cases are shown at the common \(0.9~\mu\mathrm{m}\) endpoint using identical spatial and damage scales. The measured grain-boundary panel with hydrogen shows the latest available damage field at \(0.781055~\mu\mathrm{m}\), immediately below the last converged state at \(0.781143~\mu\mathrm{m}\). Fifteen unsuccessful continuation attempts reduce the displacement increment through subdivision depth 10 while increasing the maximum number of staggered iterations from 240 to 960. The displacement-controlled solver did not converge beyond this point; the endpoint is therefore not interpreted as a physical critical load.}
+\label{fig:S5}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{Summary of the numerical results used in the mechanical interpretation.}
+\label{tab:S6}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.17\textwidth}XXX}
+\toprule
+\textbf{Calculation} & \textbf{Result} & \textbf{Numerical assessment} & \textbf{Interpretation} \\
+\midrule
+Homogeneous edge-crack benchmark & Finest-pair reaction changes: \(1.366\%\) frozen; \(1.441\%\) coupled & Both sequences remain non-asymptotic & Absolute reaction retains crack-tip discretisation error \\
+Boundary-field sensitivity at \(b=1.5~\mu\mathrm{m}\) & Area below \(0.6G_{c,\mathrm{bulk}}\): \(92.55\%\) to \(27.27\%\) & Strong mapping dependence & Mapping choice changes the constitutive field \\
+Reference calculation residuals & KKT \(\le9.60\times10^{-7}\); energy \(\le2.14\times10^{-4}\) & Passed & Accepted local states \\
+Finest low-load mesh pair & Reaction \(-1.594\%\); \(L_{\mathrm{reg}}\) \(+0.020\%\); tip 0 on both & Within baseline criterion & Hydrogen-free baseline only \\
+15/30/60 load steps & Endpoint reaction spread \(<0.003\%\) & Passed & Low increment sensitivity \\
+Extended baseline mesh pair & Reaction \(-0.715\%\); \(L_{\mathrm{reg}}\) \(-1.029\%\); tip differs by one cell & Mesh-sensitive & Spatial metric has one-cell uncertainty \\
+Measured paired material contrasts & Final-refinement changes of \(0.042\)--\(0.386\) percentage points & No stable plateau & Measured effects remain unresolved \\
+High-contrast verification field & \(4.399\)--\(4.433\%\); final change \(0.011\)--\(0.032\) points & Paired response stabilises & Prescribed contrast is numerically detectable \\
+Homogeneous hydrogen contrast & Endpoint reaction -7.017\% & Model response only & Parameter-law response, not alloy validation \\
+Boundary-field/H last converged state & \(1.0477~\mu\mathrm{m}\) tip extension; KKT \(1.20\times10^{-9}\) & State converged; later path unresolved & Non-converged; exploratory only \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\end{document}

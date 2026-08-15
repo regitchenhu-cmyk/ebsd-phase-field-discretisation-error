@@ -1,0 +1,5 @@
+Non-asymptotic reaction drift persists with the phase field held fixed
+Material effects are judged by convergence of the paired contrast itself
+Measured EBSD and hydrogen contrasts of 0.6-2.5% remain unresolved
+An imposed 2.5% contrast is unresolved; 4.4% is provisionally resolved
+EBSD boundary selection shifts weak-area coverage by 65 percentage points
