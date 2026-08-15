@@ -1,0 +1,14 @@
+services:
+  dolfinx:
+    image: dolfinx/dolfinx:v0.11.0@sha256:2ae4bfbc0d9077268880faf04c72750528bee986c94ab223a2c159969bd56fa8
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    environment:
+      PYTHONPATH: /workspace/src
+    command:
+      - /bin/bash
+      - -lc
+      - >-
+        python3 -m pip install --no-deps -e . &&
+        python3 -m graphfracture examples/sent_graph_hydrogen_onset.toml

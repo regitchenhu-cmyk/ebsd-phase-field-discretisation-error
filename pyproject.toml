@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pfm-h-graphfracture"
+version = "0.2.0"
+description = "Graph-informed phase-field fracture research with DOLFINx"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+legacy = [
+  "scipy>=1.12",
+  "matplotlib>=3.8",
+]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.9",
+]
+
+[project.scripts]
+graphfracture = "graphfracture.cli:main"
+graphfracture-analysis = "graphfracture.analysis:main"
+graphfracture-ebsd-studies = "graphfracture.ebsd_studies:main"
+graphfracture-field-audit = "graphfracture.field_audit:main"
+graphfracture-interface-calibration = "graphfracture.interface_calibration:main"
+graphfracture-inclined-studies = "graphfracture.inclined_studies:main"
+graphfracture-path-sensitivity = "graphfracture.path_sensitivity:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+markers = [
+  "dolfinx: requires the pinned DOLFINx/PETSc runtime",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

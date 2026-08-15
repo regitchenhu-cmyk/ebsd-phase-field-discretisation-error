@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite the associated manuscript."
+title: "Distinguishing grain-boundary effects from discretisation error in EBSD-based phase-field fracture simulations"
+type: software
+version: 1.0.0
+date-released: 2026-08-15
+authors:
+  - family-names: Chen
+    given-names: Hu
+  - family-names: Hou
+    given-names: Xiangguo
+  - family-names: Zhu
+    given-names: Enze
+  - family-names: Huang
+    given-names: Pujiang
+  - family-names: Fang
+    given-names: Xingbo
+  - family-names: Wei
+    given-names: Xiaohui
+  - family-names: Nie
+    given-names: Hong
+    email: hnie@nuaa.edu.cn
+keywords:
+  - phase-field fracture
+  - EBSD
+  - grain boundary
+  - discretisation error
+  - mesh refinement
+  - hydrogen embrittlement
