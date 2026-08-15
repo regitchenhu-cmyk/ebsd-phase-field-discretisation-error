@@ -1,0 +1,19 @@
+{
+  "target_displacement_mm": 4e-05,
+  "discrete_reaction_four_level_fit": {
+    "residual_sum_squares": 0.0006770712325962091,
+    "observed_order": 0.106,
+    "formal_limit": 7.51526309536404,
+    "coefficient": 18.995171264426393,
+    "interpretation": "non-asymptotic diagnostic; not a certified Richardson extrapolation"
+  },
+  "traction_reaction_four_level_fit": {
+    "residual_sum_squares": 0.0006753973803317675,
+    "observed_order": 0.103,
+    "formal_limit": 7.381631184333423,
+    "coefficient": 18.80258091503303,
+    "interpretation": "non-asymptotic diagnostic; not a certified Richardson extrapolation"
+  },
+  "maximum_reaction_crosscheck_relative_pct": 0.195009950408649,
+  "interpretation_gate": "Reaction extraction is exonerated only if the discrete/traction mismatch is small relative to the mesh trend on every level. This audit does not replace the required over-resolved cracked reference solution."
+}
